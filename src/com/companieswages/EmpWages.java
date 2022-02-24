@@ -8,16 +8,17 @@ public class EmpWages {
 		int empCheck = (int) Math.floor(Math.random() * 10) % 2;
 		// System.out.println(empCheck);
 
-		// if condition to check employee is working full time, part time or absent
-		if (empCheck == fulltime)
-			System.out.println("Employee Wage is " + wagesperhrs * ftempHours);
-		else if (empCheck == parttime)
-
-			// Calculating daily wages for part time
-			System.out.println("Employee Wage is " + wagesperhrs * ptempHours);
-		else
-			System.out.println("Employee Wage is " + wagesperhrs * empHours);
-
+		switch (empCheck) {
+		case 0:
+			System.out.println("Employee Wage is " + wagesperhrs * empHours);// Employee absent
+			break;
+		case 1:
+			System.out.println("Employee Wage is " + wagesperhrs * ptempHours);// Employee Parttime present
+			break;
+		default:
+			System.out.println("Employee Wage is " + wagesperhrs * ftempHours);// Employee Fulltime present
+			break;
+		}
 	}
 
 	public static void main(String[] args) {
