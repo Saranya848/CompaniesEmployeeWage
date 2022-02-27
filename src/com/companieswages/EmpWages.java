@@ -1,29 +1,54 @@
 package com.companieswages;
 
+import java.util.*;
+
 public class EmpWages {
-	public static void empdata(int fulltime, int parttime) {
-		final int wagesperhrs = 20;
-		int empHours = 0, ftempHours = 16, ptempHours = 8;
+	final int wagesperhrs, workinghours, workingday;
+
+	public EmpWages(int wagesperhrs, int workinghours, int workingday) {
+		this.wagesperhrs = wagesperhrs;
+		this.workinghours = workinghours;
+		this.workingday = workingday;
+	}
+
+	public void empdata() {
+		int empHours = 0, dailywages = 0, monthlyWage = 0;
 		// number for 0 for absent 1 for present
 		int empCheck = (int) Math.floor(Math.random() * 10) % 2;
 		// System.out.println(empCheck);
-
-		switch (empCheck) {
-		case 0:
-			System.out.println("Employee Wage is " + wagesperhrs * empHours);// Employee absent
-			break;
-		case 1:
-			System.out.println("Employee Wage is " + wagesperhrs * ptempHours);// Employee Parttime present
-			break;
-		default:
-			System.out.println("Employee Wage is " + wagesperhrs * ftempHours);// Employee Fulltime present
-			break;
+		// looping for n working days
+		for (int day = 1; day <= workingday; day++) {
+			switch (empCheck) {
+			case 0:
+				empHours = 0;// Employee absent
+				break;
+			case 1:
+				empHours = 4;// Employee Parttime present
+				break;
+			default:
+				empHours = 8;// Employee Fulltime present
+				break;
+			}
+			// Calculating Daily Wages and Monthly Wages of employee
+			dailywages = wagesperhrs * empHours;
+			monthlyWage = monthlyWage + dailywages;
 		}
+		System.out.println("Employee Wage daily is " + dailywages + " and Monthly Wage is " + monthlyWage);
 	}
 
 	public static void main(String[] args) {
-		int parttime = 1, fulltime = 2;
+
 		// declaring constants
-		empdata(parttime, fulltime);
+		Scanner sc = new Scanner(System.in);
+			System.out.println("Enter Rate per hour");
+			int wagesperhrs = sc.nextInt();
+			System.out.println("Enter Working Days");
+			int workinghours = sc.nextInt();
+			System.out.println("Enter Max Allowed working hours");
+			int workingday = sc.nextInt();
+			sc.close();
+			System.out.println(wagesperhrs + "  " + workinghours + "  " + workingday);
+			EmpWages company = new EmpWages(wagesperhrs, workinghours, workingday); // Object
+			company.empdata();
 	}
 }
