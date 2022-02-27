@@ -15,7 +15,7 @@ public class EmpWages {
 		int empHours = 0, dailywages = 0, monthlyWage = 0;
 
 		// looping for n working days
-		int totalempHrs = 0, totalWage = 0;
+		int totalempHrs = 0;
 		int totalworkingdays = 0;
 		int workinghours = 100;
 
@@ -42,8 +42,8 @@ public class EmpWages {
 			// Total Hour calculation
 			totalempHrs = totalempHrs + empHours;
 		}
-		System.out.println("Employee dailywages is " + dailywages + ", Monthly wages is " + monthlyWage);
-		System.out.println("Employee total Salary" + totalWage + " and total Hours is " + totalempHrs);
+		System.out.println("Employee dailywages is " + dailywages + ", Monthly wages is " + monthlyWage
+				+ " and Total Hours is " + totalempHrs);
 	}
 
 	public static void main(String[] args) {
