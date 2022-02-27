@@ -40,14 +40,13 @@ public class EmpWages {
 
 		// declaring constants
 		Scanner sc = new Scanner(System.in);
-			System.out.println("Enter Rate per hour");
+			System.out.println("Enter Rate per hour value:");
 			int wagesperhrs = sc.nextInt();
-			System.out.println("Enter Working Days");
+			System.out.println("Enter Working Days value:");
 			int workinghours = sc.nextInt();
-			System.out.println("Enter Max Allowed working hours");
+			System.out.println("Enter Max Allowed working hours value:");
 			int workingday = sc.nextInt();
 			sc.close();
-			System.out.println(wagesperhrs + "  " + workinghours + "  " + workingday);
 			EmpWages company = new EmpWages(wagesperhrs, workinghours, workingday); // Object
 			company.empdata();
 	}
